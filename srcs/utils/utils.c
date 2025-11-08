@@ -1,38 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/08 14:04:01 by theo              #+#    #+#             */
-/*   Updated: 2025/11/09 00:35:56 by theo             ###   ########.fr       */
+/*   Created: 2025/11/08 23:55:04 by theo              #+#    #+#             */
+/*   Updated: 2025/11/08 23:56:17 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "stdio.h"
 
-int	init(t_data *data, char *args)
+void	free_tab(char **tab)
 {
-	data->stack_a = NULL;
-	data->stack_b = NULL;
-	if (!parse_string(data, args))
-		return (0);
-	print_list(data->stack_a);
-	return (1);
-}
+	int	index;
 
-int main(int argc, char **argv)
-{
-	t_data	data;
-
-	if (argc != 2)
+	index = 0;
+	while (tab[index])
 	{
-		ft_putstr_fd("[Erreur] -> nombre d'arguments invalide\n", 2);
-		return (1);
+		free(tab[index]);
+		index ++;
 	}
-	if (!init(&data, argv[1]))
-		return (1);
-	return (0);
+	free(tab);
 }

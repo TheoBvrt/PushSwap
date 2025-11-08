@@ -1,10 +1,13 @@
-NAME = fdf
-SRCS = ./srcs/main.c \
+NAME = push_swap
+SRCS =	./srcs/main.c \
+		./srcs/list/list_manager.c \
+		./srcs/parser/parser.c \
+		./srcs/utils/utils.c \
 
 OBJS = ${SRCS:.c=.o}
 CC = gcc
 RM = rm -f
-CFLAGS = -Iheaders -Wall -Werror -Wextra -g
+CFLAGS = -Iheaders -g
 
 all : ${NAME}
 
@@ -12,11 +15,11 @@ all : ${NAME}
 	${CC} ${CFLAGS} -c $< -o $@
 
 ${NAME} : ${OBJS}
-	${MAKE} -C ./libft 
+	${MAKE} -C ./libft
 	$(CC) $(OBJS) ./libft/libft.a -o $(NAME)
 
 clean:
-	${RM} ${OBJS} 
+	${RM} ${OBJS}
 	make clean -C ./libft
 
 fclean: clean
