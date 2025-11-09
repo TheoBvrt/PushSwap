@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 14:22:29 by theo              #+#    #+#             */
-/*   Updated: 2025/11/09 01:15:06 by theo             ###   ########.fr       */
+/*   Updated: 2025/11/09 01:26:42 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,15 @@
 int	add_string_to_stack(t_data *data, char *str)
 {
 	t_node	*new_node;
-	int		value;
+	long	value;
 
 	value = ft_atoi(str);
+	if (value > 2147483647 || value < -2147483648)
+	{
+		ft_putstr_fd("[Erreur] -> les valeurs doivent tenir dans un int", 2);
+		free_list(&data->stack_a);
+		return (0);
+	}
 	new_node = create_node(value);
 	if (!new_node)
 	{
