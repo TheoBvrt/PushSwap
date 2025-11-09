@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 14:22:29 by theo              #+#    #+#             */
-/*   Updated: 2025/11/09 02:15:34 by theo             ###   ########.fr       */
+/*   Updated: 2025/11/09 02:16:16 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,10 +116,10 @@ int	parser(t_data *data, int argc, char **argv)
 		free_tab(tab);
 		index ++;
 	}
-	// if (count_list(data->stack_a) == 0)
-	// {
-	// 	ft_putstr_fd("Error\n", 2);
-	// 	return (0);
-	// }
+	if (count_list(data->stack_a) == 0)
+	{
+		ft_putstr_fd("Error\n", 2);
+		return (0);
+	}
 	return (1);
 }
