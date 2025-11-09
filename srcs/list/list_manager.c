@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 14:51:39 by theo              #+#    #+#             */
-/*   Updated: 2025/11/09 01:26:28 by theo             ###   ########.fr       */
+/*   Updated: 2025/11/09 02:11:54 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,20 @@ void	add_back(t_node	**head, t_node *new)
 		tmp = tmp->next;
 	new->next = tmp->next;
 	tmp->next = new;
+}
+
+int	count_list(t_node *head)
+{
+	int	count;
+
+	count = 0;
+	while (head)
+	{
+		if (head)
+			count ++;
+		head = head->next;
+	}
+	return (count);
 }
 
 void	print_list(t_node *head)

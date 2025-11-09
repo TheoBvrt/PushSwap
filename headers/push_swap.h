@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 14:16:55 by theo              #+#    #+#             */
-/*   Updated: 2025/11/09 01:23:21 by theo             ###   ########.fr       */
+/*   Updated: 2025/11/09 02:12:02 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,10 @@ void	pop_back(t_node **head);
 void	pop_front(t_node **head);
 void	add_front(t_node **head, t_node *new);
 void	print_list(t_node *head);
+int		count_list(t_node *head);
 
 //Parser
-int	parse_string(t_data *data, char *str);
+int	parser(t_data *data, int argc, char **argv);
 
 //Utils
 void	free_tab(char **tab);

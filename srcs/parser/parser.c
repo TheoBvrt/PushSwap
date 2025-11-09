@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 14:22:29 by theo              #+#    #+#             */
-/*   Updated: 2025/11/09 01:26:42 by theo             ###   ########.fr       */
+/*   Updated: 2025/11/09 02:15:34 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	add_string_to_stack(t_data *data, char *str)
 	value = ft_atoi(str);
 	if (value > 2147483647 || value < -2147483648)
 	{
-		ft_putstr_fd("[Erreur] -> les valeurs doivent tenir dans un int", 2);
+		ft_putstr_fd("Error\n", 2);
 		free_list(&data->stack_a);
 		return (0);
 	}
@@ -68,7 +68,7 @@ int	check_doublon(t_node *head)
 		{
 			if (tmp != head && check == tmp->value)
 			{
-				ft_putstr_fd("[Erreur] -> Présence de doublons\n", 2);
+				ft_putstr_fd("Error\n", 2);
 				return (0);
 			}
 			tmp = tmp->next;
@@ -79,28 +79,47 @@ int	check_doublon(t_node *head)
 	return (1);
 }
 
-int	parse_string(t_data *data, char *str)
+int	parse_the_tab(t_data *data, char **tab)
 {
-	char	**tmp;
 	int		index;
 
 	index = 0;
-	tmp = ft_split(str, ' ');
-	if (!tmp)
-		return (0);
-	while (tmp[index])
+	while (tab[index])
 	{
-		if (!check_string(tmp[index]))
+		if (!check_string(tab[index]))
 		{
-			ft_putstr_fd("[Erreur] -> merci d'entrer des nombres valides\n", 2);
-			return (free_tab(tmp), 0);
+			ft_putstr_fd("Error\n", 2);
+			return (0);
 		}
-		if (!add_string_to_stack(data, tmp[index]))
-			return (free_tab(tmp), 0);
+		if (!add_string_to_stack(data, tab[index]))
+			return (0);
 		index ++;
 	}
 	if (!check_doublon(data->stack_a))
-		return (free_tab(tmp), 0);
-	free_tab(tmp);
+		return (0);
+	return (1);
+}
+
+int	parser(t_data *data, int argc, char **argv)
+{
+	char	**tab;
+	int		index;
+
+	index = 1;
+	while (index < argc)
+	{
+		tab = ft_split(argv[index], ' ');
+		if (!tab)
+			return (0);
+		if (!parse_the_tab(data, tab))
+			return (free_tab(tab), 0);
+		free_tab(tab);
+		index ++;
+	}
+	// if (count_list(data->stack_a) == 0)
+	// {
+	// 	ft_putstr_fd("Error\n", 2);
+	// 	return (0);
+	// }
 	return (1);
 }
