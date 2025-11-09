@@ -1,8 +1,13 @@
 NAME = push_swap
 SRCS =	./srcs/main.c \
+		./srcs/algo.c \
 		./srcs/list/list_manager.c \
 		./srcs/parser/parser.c \
 		./srcs/utils/utils.c \
+		./srcs/operations/push.c \
+		./srcs/operations/reverse_rotate.c \
+		./srcs/operations/rotate.c \
+		./srcs/operations/swap.c \
 
 OBJS = ${SRCS:.c=.o}
 CC = gcc

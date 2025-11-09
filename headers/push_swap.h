@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 14:16:55 by theo              #+#    #+#             */
-/*   Updated: 2025/11/09 02:12:02 by theo             ###   ########.fr       */
+/*   Updated: 2025/11/09 15:26:55 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ typedef struct s_data
 	t_node	*stack_b;
 }	t_data;
 
+void	sort(t_data *data);
+
 //List
 t_node	*create_node(int value);
 void	add_back(t_node	**head, t_node *new);
@@ -43,6 +45,11 @@ int		count_list(t_node *head);
 
 //Parser
 int	parser(t_data *data, int argc, char **argv);
+
+//Operations
+void	swap(t_data *data, int stack);
+void	push(t_data *data, int stack);
+void	rotate(t_data *data, int stack);
 
 //Utils
 void	free_tab(char **tab);

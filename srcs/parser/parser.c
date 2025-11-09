@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 14:22:29 by theo              #+#    #+#             */
-/*   Updated: 2025/11/09 02:16:16 by theo             ###   ########.fr       */
+/*   Updated: 2025/11/09 12:56:18 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	add_string_to_stack(t_data *data, char *str)
 	value = ft_atoi(str);
 	if (value > 2147483647 || value < -2147483648)
 	{
-		ft_putstr_fd("Error\n", 2);
+		ft_putstr_fd("Error\n", 1);
 		free_list(&data->stack_a);
 		return (0);
 	}
@@ -68,7 +68,7 @@ int	check_doublon(t_node *head)
 		{
 			if (tmp != head && check == tmp->value)
 			{
-				ft_putstr_fd("Error\n", 2);
+				ft_putstr_fd("Error\n", 1);
 				return (0);
 			}
 			tmp = tmp->next;
@@ -88,7 +88,7 @@ int	parse_the_tab(t_data *data, char **tab)
 	{
 		if (!check_string(tab[index]))
 		{
-			ft_putstr_fd("Error\n", 2);
+			ft_putstr_fd("Error\n", 1);
 			return (0);
 		}
 		if (!add_string_to_stack(data, tab[index]))
@@ -118,7 +118,7 @@ int	parser(t_data *data, int argc, char **argv)
 	}
 	if (count_list(data->stack_a) == 0)
 	{
-		ft_putstr_fd("Error\n", 2);
+		ft_putstr_fd("Error\n", 1);
 		return (0);
 	}
 	return (1);

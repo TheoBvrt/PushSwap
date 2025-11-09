@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 14:04:01 by theo              #+#    #+#             */
-/*   Updated: 2025/11/09 02:10:54 by theo             ###   ########.fr       */
+/*   Updated: 2025/11/09 15:06:12 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int	init(t_data *data, int argc, char **argv)
 	data->stack_b = NULL;
 	if (!parser(data, argc, argv))
 		return (0);
-	print_list(data->stack_a);
 	return (1);
 }
 
@@ -34,6 +33,20 @@ int main(int argc, char **argv)
 		free_list(&data.stack_a);
 		return (1);
 	}
+	// ft_printf("stack_a : ");
+	// print_list(data.stack_a);
+	// ft_printf("stack_b : ");
+	// print_list(data.stack_b);
+	// ft_printf("---------\n");
+	// rotate(&data, 'a');
+	// rotate(&data, 'b');
+	// rotate(&data, 'b');
+	// ft_printf("\n---------\n");
+	// ft_printf("stack_a : ");
+	// print_list(data.stack_a);
+	// ft_printf("stack_b : ");
+//	print_list(data.stack_a);
+	sort(&data);
 	free_list(&data.stack_a);
 	return (0);
 }
