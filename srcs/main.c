@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 14:04:01 by theo              #+#    #+#             */
-/*   Updated: 2025/11/09 00:35:56 by theo             ###   ########.fr       */
+/*   Updated: 2025/11/09 00:41:02 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@ int main(int argc, char **argv)
 	}
 	if (!init(&data, argv[1]))
 		return (1);
+	free_list(&data.stack_a);
 	return (0);
 }

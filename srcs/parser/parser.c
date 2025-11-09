@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 14:22:29 by theo              #+#    #+#             */
-/*   Updated: 2025/11/09 00:35:32 by theo             ###   ########.fr       */
+/*   Updated: 2025/11/09 01:15:06 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,37 @@ int	check_string(char *str)
 	{
 		if (i == 0)
 		{
-			if (!ft_isdigit(str[i]) && (str[i] != '+' &&  str[i] != '-'))
-				return (0);
-			if (ft_strlen(str) ==  1 && (str[i] == '+' || str[i] == '-'))
+			if ((!ft_isdigit(str[i]) && (str[i] != '+' && str[i] != '-'))
+				|| ft_strlen(str) == 1 && (str[i] == '+' || str[i] == '-'))
 				return (0);
 		}
 		else if (!ft_isdigit(str[i]))
 			return (0);
 		i ++;
+	}
+	return (1);
+}
+
+int	check_doublon(t_node *head)
+{
+	t_node	*tmp;
+	int		check;
+
+	tmp = head;
+	while (head)
+	{
+		check = head->value;
+		while (tmp)
+		{
+			if (tmp != head && check == tmp->value)
+			{
+				ft_putstr_fd("[Erreur] -> Présence de doublons\n", 2);
+				return (0);
+			}
+			tmp = tmp->next;
+		}
+		head = head->next;
+		tmp = head;
 	}
 	return (1);
 }
@@ -64,13 +87,14 @@ int	parse_string(t_data *data, char *str)
 		if (!check_string(tmp[index]))
 		{
 			ft_putstr_fd("[Erreur] -> merci d'entrer des nombres valides\n", 2);
-			free_tab(tmp);
-			return (0);
+			return (free_tab(tmp), 0);
 		}
 		if (!add_string_to_stack(data, tmp[index]))
-			return (0);
+			return (free_tab(tmp), 0);
 		index ++;
 	}
+	if (!check_doublon(data->stack_a))
+		return (free_tab(tmp), 0);
 	free_tab(tmp);
 	return (1);
 }
