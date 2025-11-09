@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 14:16:55 by theo              #+#    #+#             */
-/*   Updated: 2025/11/09 15:26:55 by theo             ###   ########.fr       */
+/*   Updated: 2025/11/09 16:50:18 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int	parser(t_data *data, int argc, char **argv);
 void	swap(t_data *data, int stack);
 void	push(t_data *data, int stack);
 void	rotate(t_data *data, int stack);
+void	reverse_rotate(t_data *data, int stack);
 
 //Utils
 void	free_tab(char **tab);
