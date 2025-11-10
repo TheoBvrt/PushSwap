@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thbouver <thbouver@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 14:16:55 by theo              #+#    #+#             */
-/*   Updated: 2025/11/10 18:21:56 by thbouver         ###   ########.fr       */
+/*   Updated: 2025/11/10 23:20:43 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,14 @@
 
 # include "../libft/libft.h"
 
-typedef struct s_node t_node;
+typedef struct s_node	t_node;
 
-typedef	struct s_node
+typedef struct s_node
 {
 	int		value;
 	t_node	*prev;
 	t_node	*next;
 }	t_node;
-
 
 typedef struct s_data
 {
@@ -32,6 +31,10 @@ typedef struct s_data
 }	t_data;
 
 void	sort(t_data *data);
+void	swiss_sort(t_data *data);
+int		find_bigger(t_node *head);
+int		find_smaller(t_node *head);
+int		find_dir(t_node *head, int value);
 
 //List
 t_node	*create_node(int value);
@@ -44,7 +47,7 @@ void	print_list(t_node *head);
 int		count_list(t_node *head);
 
 //Parser
-int	parser(t_data *data, int argc, char **argv);
+int		parser(t_data *data, int argc, char **argv);
 
 //Operations
 void	swap(t_data *data, int stack);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thbouver <thbouver@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 23:55:04 by theo              #+#    #+#             */
-/*   Updated: 2025/11/10 18:28:07 by thbouver         ###   ########.fr       */
+/*   Updated: 2025/11/10 23:18:16 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	is_sorted(t_data *data)
 	t_node	*tmp;
 	int		value;
 
-	tmp = data->stack_a;	
+	tmp = data->stack_a;
 	value = tmp->value;
 	while (tmp->next)
 	{

@@ -3,49 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   algo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thbouver <thbouver@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 14:54:37 by theo              #+#    #+#             */
-/*   Updated: 2025/11/10 18:16:48 by thbouver         ###   ########.fr       */
+/*   Updated: 2025/11/10 23:17:18 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static int	find_bigger(t_node *head)
-{
-	int	value;
-
-	value = head->value;
-	while (head)
-	{
-		if (head->value > value)
-			value = head->value;
-		head = head->next;
-	}
-	return (value);
-}
-static int	find_dir(t_node *head, int value)
-{
-	int	size;
-	int	index;
-
-	size = count_list(head);
-	index = 0;
-	while (head)
-	{
-		if (head->value == value)
-		{
-			if (index > (size / 2))
-				return (1);
-			else
-				return (-1);
-		}
-		index ++;
-		head = head->next;
-	}
-	return (value);
-}
 
 static int	*find_smallests(t_node *head, int size)
 {
@@ -75,7 +40,7 @@ static int	*find_smallests(t_node *head, int size)
 	return (ptr);
 }
 
-void	push_all_to_a(t_data *data)
+void	sort_stack_b(t_data *data)
 {
 	int	target;
 
@@ -95,12 +60,12 @@ void	push_all_to_a(t_data *data)
 	}
 }
 
-void	sort(t_data *data)
+void	swiss_sort(t_data *data)
 {
 	int	*values_targets;
 	int	size;
 
-	size = determine_chunk_size(count_list(data->stack_a));;
+	size = determine_chunk_size(count_list(data->stack_a));
 	values_targets = find_smallests(data->stack_a, size);
 	while (size > 0)
 	{
@@ -112,8 +77,10 @@ void	sort(t_data *data)
 			size = determine_chunk_size(count_list(data->stack_a));
 			free (values_targets);
 			values_targets = find_smallests(data->stack_a, size);
+			if (!values_targets)
+				return ;
 		}
 	}
 	free (values_targets);
-	push_all_to_a(data);
+	sort_stack_b(data);
 }

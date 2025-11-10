@@ -1,9 +1,11 @@
 NAME = push_swap
 SRCS =	./srcs/main.c \
 		./srcs/algo.c \
+		./srcs/sort.c \
 		./srcs/list/list_manager.c \
 		./srcs/parser/parser.c \
 		./srcs/utils/utils.c \
+		./srcs/utils/algo_utils.c \
 		./srcs/operations/push.c \
 		./srcs/operations/rotate.c \
 		./srcs/operations/swap.c \

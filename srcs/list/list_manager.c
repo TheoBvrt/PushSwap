@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 14:51:39 by theo              #+#    #+#             */
-/*   Updated: 2025/11/09 02:11:54 by theo             ###   ########.fr       */
+/*   Updated: 2025/11/10 23:19:22 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,26 +45,10 @@ void	pop_back(t_node **head)
 	tmp->next = NULL;
 }
 
-void	pop_front(t_node **head)
-{
-	t_node	*tmp;
-
-	tmp = *head;
-	if (!*head)
-		return ;
-	*head = (*head)->next;
-	free (tmp);
-}
-
-void	add_front(t_node **head, t_node *new)
-{
-	new->next = *head;
-	*head = new;
-}
-
-t_node *create_node(int value)
+t_node	*create_node(int value)
 {
 	t_node	*new;
+
 	new = malloc(sizeof(t_node));
 	if (!new)
 		return (NULL);
@@ -76,7 +60,7 @@ t_node *create_node(int value)
 
 void	add_back(t_node	**head, t_node *new)
 {
-	t_node *tmp;
+	t_node	*tmp;
 
 	if (!*head)
 	{
@@ -102,14 +86,4 @@ int	count_list(t_node *head)
 		head = head->next;
 	}
 	return (count);
-}
-
-void	print_list(t_node *head)
-{
-	while (head)
-	{
-		ft_printf("[%d] -> ", head->value);
-		head = head->next;
-	}
-	ft_printf("[NULL]\n");
 }
