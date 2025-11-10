@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 14:04:01 by theo              #+#    #+#             */
-/*   Updated: 2025/11/10 23:17:32 by theo             ###   ########.fr       */
+/*   Updated: 2025/11/11 00:24:35 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	main(int argc, char **argv)
 	if (!init(&data, argc, argv))
 	{
 		free_list(&data.stack_a);
-		return (1);
+		return (0);
 	}
 	if (is_sorted(&data))
 		return (0);
