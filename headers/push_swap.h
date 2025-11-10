@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: thbouver <thbouver@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 14:16:55 by theo              #+#    #+#             */
-/*   Updated: 2025/11/09 16:50:18 by theo             ###   ########.fr       */
+/*   Updated: 2025/11/10 18:21:56 by thbouver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,8 @@ void	reverse_rotate(t_data *data, int stack);
 
 //Utils
 void	free_tab(char **tab);
+int		is_in_chunk(int *values_targets, int current, int size);
+int		determine_chunk_size(int list_size);
+int		is_sorted(t_data *data);
 
 #endif

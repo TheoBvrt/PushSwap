@@ -5,7 +5,6 @@ SRCS =	./srcs/main.c \
 		./srcs/parser/parser.c \
 		./srcs/utils/utils.c \
 		./srcs/operations/push.c \
-		./srcs/operations/reverse_rotate.c \
 		./srcs/operations/rotate.c \
 		./srcs/operations/swap.c \
 
