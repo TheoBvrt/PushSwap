@@ -6,7 +6,7 @@
 /*   By: thbouver <thbouver@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 14:22:29 by theo              #+#    #+#             */
-/*   Updated: 2025/11/11 12:03:23 by thbouver         ###   ########.fr       */
+/*   Updated: 2025/11/11 13:07:27 by thbouver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static int	check_string(char *str)
 		if (i == 0)
 		{
 			if ((!ft_isdigit(str[i]) && (str[i] != '+' && str[i] != '-'))
-				|| ft_strlen(str) == 1 && (str[i] == '+' || str[i] == '-'))
+				|| (ft_strlen(str) == 1 && (str[i] == '+' || str[i] == '-')))
 				return (0);
 		}
 		else if (!ft_isdigit(str[i]))

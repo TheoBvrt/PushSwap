@@ -13,7 +13,7 @@ SRCS =	./srcs/main.c \
 OBJS = ${SRCS:.c=.o}
 CC = gcc
 RM = rm -f
-CFLAGS = -Iheaders -g
+CFLAGS = -Iheaders -Wall -Wextra -Werror -g
 
 all : ${NAME}
 
