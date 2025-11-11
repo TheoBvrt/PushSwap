@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: thbouver <thbouver@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 14:22:29 by theo              #+#    #+#             */
-/*   Updated: 2025/11/11 00:24:00 by theo             ###   ########.fr       */
+/*   Updated: 2025/11/11 12:03:23 by thbouver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	add_string_to_stack(t_data *data, char *str)
+static int	add_string_to_stack(t_data *data, char *str)
 {
 	t_node	*new_node;
 	long	value;
@@ -35,7 +35,7 @@ int	add_string_to_stack(t_data *data, char *str)
 	return (1);
 }
 
-int	check_string(char *str)
+static int	check_string(char *str)
 {
 	int	i;
 
@@ -55,7 +55,7 @@ int	check_string(char *str)
 	return (1);
 }
 
-int	check_doublon(t_node *head)
+static int	check_doublon(t_node *head)
 {
 	t_node	*tmp;
 	int		check;
@@ -79,7 +79,7 @@ int	check_doublon(t_node *head)
 	return (1);
 }
 
-int	parse_the_tab(t_data *data, char **tab)
+static int	parse_the_tab(t_data *data, char **tab)
 {
 	int		index;
 

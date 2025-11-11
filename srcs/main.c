@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: thbouver <thbouver@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 14:04:01 by theo              #+#    #+#             */
-/*   Updated: 2025/11/11 00:24:35 by theo             ###   ########.fr       */
+/*   Updated: 2025/11/11 12:03:39 by thbouver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "stdio.h"
 
-int	init(t_data *data, int argc, char **argv)
+static int	init(t_data *data, int argc, char **argv)
 {
 	data->stack_a = NULL;
 	data->stack_b = NULL;
@@ -33,9 +33,8 @@ int	main(int argc, char **argv)
 		free_list(&data.stack_a);
 		return (0);
 	}
-	if (is_sorted(&data))
-		return (0);
-	sort(&data);
+	if (!is_sorted(&data))
+		sort(&data);
 	free_list(&data.stack_a);
 	return (0);
 }
